@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau Bien
+{% endblock %}
+
+{% block body %}
+	<h1>Déposer une  annonce</h1>
+
+	{{ include('member/_form.html.twig') }}
+
+	<a href="{{ path('app_property_list', {'id': app.user.id}) }}">Rétour à la liste</a>
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Property
+{% endblock %}
+
+{% block body %}
+	<h1>Bien</h1>
+	<table class="table">
+		<tbody>
+			<tr>
+				<th>Titre</th>
+				<td>{{ bien.title }}</td>
+			</tr>
+			<tr>
+				<th>Description</th>
+				<td>{{ bien.description }}</td>
+			</tr>
+			<tr>
+				<th>Prix</th>
+				<td>{{ bien.price }}
+					euro
+				</td>
+			</tr>
+			<tr>
+				<th>Piece</th>
+				<td>{{ bien.rooms }}</td>
+			</tr>
+			<tr>
+				<th>Chambre</th>
+				<td>{{ bien.bedrooms }}</td>
+			</tr>
+			<tr>
+				<th>Energie</th>
+				<td>{{ bien.energy }}</td>
+			</tr>
+			<tr>
+				<th>Superficie</th>
+				<td>{{ bien.area }}
+					m2</td>
+			</tr>
+
+			<tr>
+				<th>Adresse</th>
+				<td>{{ bien.adress }}</td>
+			</tr>
+
+			<tr>
+				<th>Email</th>
+				<td>{{ bien.users.email }}</td>
+			</tr>
+
+			<tr>
+				<th>Telephone</th>
+				<td>{{ bien.phone }}</td>
+			</tr>
+			<tr>
+				<th>Status</th>
+				<td>{{ bien.sold  ? 'Disponible' : 'Urgent'}}</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="row d-none d-lg-flex load-media">
+		<div class="col-lg-6 col-md-12">
+			<div id="carousel" class="carousel slide mt-3 mb-2" data-ride="carousel">
+				<ol class="carousel-indicators">
+					{% for image in bien.images %}
+						<li data-target=".carousel" data-slide-to="{{ loop.index0 }}" {% if loop.index0 == 0 %} class="active" {% endif %}></li>
+					{% endfor %}
+				</ol>
+				<div class="carousel-inner enlarge">
+					{% for image in bien.images %}
+						<div class="carousel-item {% if loop.index0 == 0 %} active {% endif %}">
+							<img class="d-block" src="{{ asset('/uploads/' ~ image.name) }}" alt="Image">
+						</div>
+					{% endfor %}
+				</div>
+				<a class="carousel-control-prev" href="#carousel" data-slide="prev">
+					<span class="carousel-control-prev-icon"></span>
+				</a>
+				<a class="carousel-control-next" href="#carousel" data-slide="next">
+					<span class="carousel-control-next-icon"></span>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="text-center">
+		<a href="{{ path('home_annonce') }}">Retour à la liste
+		</a>
+	</div>
+
+{% endblock %}
