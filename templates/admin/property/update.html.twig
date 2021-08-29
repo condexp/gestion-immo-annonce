@@ -1,6 +1,6 @@
 {% extends 'admin/sbadmin.html.twig' %}
 
-{% block title %}Modifier un article
+{% block title %}Modifier un Bien
 {% endblock %}
 
 {% block body %}
@@ -12,10 +12,13 @@
 			</ol>
 
 			<div class="example-wrapper">
-				<h1>Modifier un article</h1>
-				{{ form(form) }}
-				</div>
-
+				<h1>Modifier un Bien</h1>
+				{{ form_start(form) }}
+				{{ form_widget(form) }}
+				<button class="btn">{{ button_label|default('Enregistrer') }}</button>
+				{{ form_end(form) }}
 			</div>
-		</main>
-	{% endblock %}
+
+		</div>
+	</main>
+{% endblock %}

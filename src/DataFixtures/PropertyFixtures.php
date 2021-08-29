@@ -24,7 +24,11 @@ class PropertyFixtures extends Fixture implements DependentFixtureInterface
             $property->setPropertytype($propertytype);
 
             $property->setTitle($faker->realText(20));
-            $property->setDescription($faker->realText(300));
+            $property->setDescription('Appartement avec balcon et 
+            place de parking. L\'appartement est situé au 1er 
+            étage et comprend une entrée avec placards,
+            une pièce de vie avec cuisine ouverte sur salon, accès au balcon, des chambres avec placards, une salle de bain et wc indépendant. 
+            Les honoraires sont à la charge du vendeur');
             $property->setAdress($faker->address);
             $property->setArea($faker->numberBetween(10, 500));
             $property->setRooms($faker->numberBetween(2, 10));

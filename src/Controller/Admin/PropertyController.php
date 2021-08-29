@@ -80,7 +80,6 @@ class PropertyController extends AbstractController
      */
     public function deleteProperty(Property $property): Response
     {
-
         $em = $this->getDoctrine()->getManager();
         $em->remove($property);
         $em->flush();

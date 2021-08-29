@@ -34,19 +34,15 @@ class UsersFixtures extends Fixture
         for ($nbUsers = 1; $nbUsers <= 20; $nbUsers++) {
 
             if ($nbUsers === 1) {
-
                 $newuser = inituser(['ROLE_ADMIN'], 'admin@aconde.fr');
                 $newuser->setPassword($this->encoder->hashPassword($newuser, '123456'));
             } elseif ($nbUsers == 2) {
-
                 $newuser = inituser(['ROLE_USER'], 'demo@aconde.fr');
                 $newuser->setPassword($this->encoder->hashPassword($newuser, '123456'));
             } elseif ($nbUsers > 2) {
-
                 $newuser = inituser(['ROLE_USER'], $faker->email);
                 $newuser->setPassword($this->encoder->hashPassword($newuser, '123456'));
             }
-
             $manager->persist($newuser);
             // Enregistre l'utilisateur dans une référence
             $this->addReference('user_' . $nbUsers, $newuser);
