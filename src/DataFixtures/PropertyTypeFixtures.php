@@ -35,9 +35,9 @@ class PropertyTypeFixtures extends Fixture
         ];
 
         foreach ($types as $key => $value) {
+            
             $propertytype = new PropertyType();
             $propertytype->setName($value['name']);
-
             $manager->persist($propertytype);
 
             // Enregistre la propertytype dans une référence

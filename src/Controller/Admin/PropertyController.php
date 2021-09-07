@@ -83,7 +83,7 @@ class PropertyController extends AbstractController
         $em = $this->getDoctrine()->getManager();
         $em->remove($property);
         $em->flush();
-        $this->addFlash('success', 'Votre bien a été supprimé avec succès !');
+        $this->addFlash('success', 'Votre annonce a été supprimé avec succès !');
         return $this->redirectToRoute('admin_property_index');
     }
 
@@ -99,7 +99,7 @@ class PropertyController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($property);
             $em->flush();
-            $this->addFlash('success', 'Votre bien a été modifié avec succès !');
+            $this->addFlash('success', 'Votre annonce a été modifié avec succès !');
             return $this->redirectToRoute('admin_property_index');
         }
 
